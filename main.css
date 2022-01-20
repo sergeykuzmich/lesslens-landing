@@ -15,25 +15,25 @@
 
 @font-face {
     font-family: "San Francisco";
-    src: url("../font/SF-Pro-Display-Regular.otf") format("opentype");
+    src: url("./font/SF-Pro-Display-Regular.otf") format("opentype");
     font-weight: normal;
   }
 
 @font-face {
     font-family: "San Francisco";
-    src: url("../font/SF-Pro-Display-Semibold.otf") format("opentype");
+    src: url("./font/SF-Pro-Display-Semibold.otf") format("opentype");
     font-weight: 600;
   }
 
 @font-face {
     font-family: "San Francisco";
-    src: url("../font/SF-Pro-Display-Medium.otf") format("opentype");
+    src: url("./font/SF-Pro-Display-Medium.otf") format("opentype");
     font-weight: 500;
 }
 
 @font-face {
     font-family: "San Francisco";
-    src: url("../font/SF-Pro-Display-Heavy.otf") format("opentype");
+    src: url("./font/SF-Pro-Display-Heavy.otf") format("opentype");
     font-weight: 800;
 }
   

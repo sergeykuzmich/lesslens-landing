@@ -119,7 +119,7 @@ function init() {
    
     // GLTF Scene loader
     gltfLoader = new GLTFLoader( manager );
-    gltfLoader.load( '../scene/default.gltf', function ( gltf ) { 
+    gltfLoader.load( './scene/default.gltf', function ( gltf ) { 
         environment = gltf.scene;
         environment.castShadows
         scene.add( environment );

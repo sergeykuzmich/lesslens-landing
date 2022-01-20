@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <!-- , initial-scale=1.0 -->
+    <title>LLDemo</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="scene.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+</head>
+<body>
+    <header class="indent bury">
+        <img src="./img/logo.svg" alt="logo" class="logo-icon">
+        <div class="logo-title">LESS LENS</div>
+        <a href="https://apps.apple.com/us/app/lesslens-glasses-sunglasses/id1535675035"><img src="./img/appstore.svg" alt="Download"></a>
+    </header>
+
+    <div id="scene"></div>
+
+    <div id="navigation">
+        <div></div>
+        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = 0"></a>
+        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight"></a>
+        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight*2"></a>
+        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight*3"></a>
+        <div></div>
+    </div>
+
+    <div class="feed">
+
+        <div id="slider" class="indent bury">
+            <section class="slide">
+                <div>
+                    <h1>Virtual Try On</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. 
+                        Venenatis nisl pharetra dui, etiam sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. 
+                        Venenatis nisl pharetra dui, etiam sapien. 
+                    </p>
+                    <small>powered by</small><br>
+                    <img src="./img/arkit.png" class="arkit" alt="ARKit">
+                </div>
+            </section>
+            <section class="slide">
+                <div>
+                    <h1>Discover Your Perfect Glasses</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. 
+                        Venenatis nisl pharetra dui, etiam sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. 
+                        Venenatis nisl pharetra dui, etiam sapien. 
+                    </p>
+                </div>
+            </section>
+            <section class="slide white">
+                <div>
+                    <h1>Explore Options</h1>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. </p> -->
+                    <hr>
+                    <div class="brands">
+                        <img src="./img/rayban-logo.svg" class="brand" alt="Ray-Ban">
+                        <img src="./img/oakley-logo.svg" class="brand" alt="OAKLEY">
+                        <img src="./img/katespade-logo.svg" class="brand" alt="kate spade">
+                        <img src="./img/gucci-logo.svg" class="brand" alt="GUCCI">
+                        <img src="./img/polaroid-logo.svg" class="brand" alt="Polaroid">
+                        <img src="./img/versace-logo.svg" class="brand" alt="VERSACE">
+                        <img src="./img/michaelkors-logo.svg" class="brand" alt="MICHAEL KORS">
+                        <img src="./img/prada-logo.svg" class="brand" alt="PRADA">
+                        <img src="./img/dior-logo.svg" class="brand" alt="Dior">
+                        <img src="./img/toryburch-logo.svg" class="brand" alt="TORY BURCH">
+                        <img src="./img/guess-logo.svg" class="brand" alt="GUESS">
+                        <img src="./img/lacoste-logo.svg" class="brand" alt="LACOSTE">
+                        <img src="./img/hugoboss-logo.svg" class="brand" alt="HUGO Boss">
+                        <img src="./img/costadelmar-logo.svg" class="brand" alt="COSTA Del Mar">
+                    </div>
+                    <hr>
+                </div>
+            </section>
+            <section class="slide">
+                <div>
+                    <h1>Easy Shopping</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. 
+                        Venenatis nisl pharetra dui, etiam sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. 
+                        Venenatis nisl pharetra dui, etiam sapien. </p>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    
+
+    
+      
+    <footer class="indent bury">
+        <div>&#169; LessLens inc. <script>document.write(/\d{4}/.exec(Date())[0])</script></div>
+        <a href="legal.html" target="_blank">Privacy Policy</a>
+        <a href="https://www.instagram.com/less.lens/" data-feather="instagram"></a>
+        <a href="" data-feather="twitter"></a>
+        <a href="" data-feather="facebook"></a>
+        <a href="mailto:info@lesslens.com" data-feather="mail"> </a>
+    </footer>
+
+    <div id="load-screen">
+        <img src="./img/loader.gif" class="loader-animation" alt="loader">
+
+        <div class="loader-bg">
+            <div id="progress"></div>
+        </div>
+        <span id="counter">1%</span>
+    </div>
+
+    <script>feather.replace() </script>
+</body>
+</html>

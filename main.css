@@ -5,9 +5,9 @@
     --orange: #FF9150;
     --blue: #8286DB;
     --green: #56BA8D;
-    --padding: 15%;
+    --padding: 60px;
     --padding2: 16px;
-    --header: 90px;
+    --header: 80px;
     --header-mobile: 62px;
     --footer: 85px;
     --footer-mobile: 60px;
@@ -57,7 +57,7 @@ body {
 h1 {
     font-family: "San Francisco", sans-serif;
     font-weight: 800;
-    font-size: 58px;
+    font-size: 52px;
     line-height: 100%;
     letter-spacing: 0.008em;
     margin: 16px 0;
@@ -98,34 +98,19 @@ header{
     grid-template-columns: min-content auto min-content;
     z-index: 10;
 
-
     backdrop-filter: blur(20px);
-    /* background: linear-gradient(180deg, var(--white), rgba(255,255,255,0)); */
-
-    /* border-bottom: 2px solid rgba(0, 0, 0, 0.05); */
 }
 
-button {
-
-padding: 8px 20px;
-
-background-color: var(--orange);
-color: var(--white);
-border: none;
-border-radius: 14px;
-
-font-family: "SF Pro Text";
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 22px;
-
-text-align: center;
-letter-spacing: -0.408px;
+.logo-title {
+    mix-blend-mode: difference;
 }
 
 .logo-icon {
     height: 35px;
+}
+
+#download {
+
 }
 
 #slider::-webkit-scrollbar {
@@ -288,20 +273,28 @@ footer a {
     /* opacity: 0; */
    }
 
+
+
+
 @media screen and (max-width: 1024px) {
-    header {
-        background-color: var(--white);
+    .mobile-hide {
+        display: none;
     }
+
+    header {
+        /* backdrop-filter: none; */
+    }
+
     h1 {
-        font-size: 38px;
+        font-size: 58px;
     }
     p {
-        font-size: 14px;
+        font-size: 16px;
     }
     #scene {
         width: 100vw;
-        height: 200vh;
-        margin: -100% 0 0 0;
+        height: 155vh;
+        margin: -55% 0 0 0;
         /* z-index: 5; */
     }
     .feed {
@@ -309,14 +302,15 @@ footer a {
         align-items: flex-end;
     }
     #slider {
-        height: 30vh;
+        height: 100%;
         margin-bottom: var(--footer-mobile);
 
 
     }
     .slide {
         padding: 0;
-        align-items: start;
+        align-items: flex-end;
+        justify-content: left;
     }
 
     .indent{
@@ -349,6 +343,7 @@ footer a {
     footer{
         height: var(--footer-mobile);
         background-color: var(--white);
-        grid-gap: 2px;
+        grid-template-columns: auto repeat(4, max-content);
+        grid-gap: 24px;
     }
   }

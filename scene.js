@@ -2,9 +2,9 @@ import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threej
 import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/GLTFLoader.js';
 import { RGBELoader } from ' https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/RGBELoader.js';
 
-let container, scene, gltfLoader, fbxLoader, environment, controls, renderer, manager;
-let camera, target, mixer, cameraMixer, action, clips, clip, clock, hdri, pmremGenerator, grid, composer;
-let globaLight, keyLight, fillLight, softBox;
+let container, scene, gltfLoader, environment, renderer, manager;
+let camera, mixer, clock, hdri, pmremGenerator, grid;
+let globaLight;
 
 let progress
 var mouse = {x: 0, y: 0};
@@ -69,10 +69,6 @@ function init() {
     scene.background = new THREE.Color( BG );
 
 
-    // Grid
-    // grid = new THREE.GridHelper( 5 );
-    // scene.add( grid );
-
     //HDRI Lightning
 
     new RGBELoader( manager )
@@ -127,7 +123,7 @@ function init() {
         camera = gltf.cameras[0];
         camera.aspect = container.clientWidth / container.clientHeight;
         
-        camera.zoom = document.body.clientWidth < 1024 ? 0.6 : 1;
+        camera.zoom = document.body.clientWidth < 1024 ? 0.55 : 1;
         camera.updateProjectionMatrix();
         camera.updateMatrix();
 
@@ -148,8 +144,7 @@ function init() {
     //Events
 
     window.addEventListener( 'resize', onWindowResize );
-    // document.addEventListener( 'mousemove', onMouseMove );
-    window.addEventListener("wheel", scroll );
+    document.addEventListener( 'mousemove', onMouseMove );
 }
 
 
@@ -170,17 +165,13 @@ function render() {
 }
 
 function onMouseMove(event) {
-
     if (document.body.clientWidth > 1024 ) {
-        window.requestAnimationFrame(function() {
             event.preventDefault();
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 
             camera.position.z = -mouse.y / 80;
             camera.position.x = mouse.x / 80;
-            // render();
-        }); 
     }   
 }
 

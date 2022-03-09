@@ -22,28 +22,27 @@
 
     <div id="navigation">
         <div></div>
-        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = 0"></a>
-        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight"></a>
-        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight*2"></a>
-        <a class="dot" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight*3"></a>
+        <a class="selector" onclick="javascript:document.getElementById('slider').scrollTop = 0" ><div class="dot"></div></a>
+        <a class="selector" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight"><div class="dot"></div></a>
+        <a class="selector" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight*2"><div class="dot"></div></a>
+        <a class="selector" onclick="javascript:document.getElementById('slider').scrollTop = document.getElementById('slider').clientHeight*3"><div class="dot"></div></a>
         <div></div>
     </div>
 
     <div class="feed">
 
         <div id="slider" class="indent bury">
-            <section class="slide">
+            <section id="tryon" class="slide">
                 <div>
                     <h1>Virtual Tryon</h1>
                     <p class="mobile-hide">LessLens is a smart home trial app that allows you to try on and purchase your favorite glasses
                          and sunglasses without leaving the comfort of your home. Choose from brand eyewear and discover 
                          the perfect frames to fit any occasion. Look smart, act smart!
                     </p>
-                    <small class="mobile-hide">powered by</small><br>
                     <img src="./img/arkit.png" class="arkit mobile-hide" alt="ARKit">
                 </div>
             </section>
-            <section class="slide">
+            <section id="discover" class="slide">
                 <div>
                     <h1>Discover Your Perfect Glasses</h1>
                     <p class="mobile-hide">We use augmented reality (AR) to virtually 
@@ -53,7 +52,7 @@
                         try them on as you would in real life with our virtual try-on feature.</p>
                 </div>
             </section>
-            <section class="slide white">
+            <section id="explore" class="slide white">
                 <div>
                     <h1>Explore Options</h1>
                     <hr class="mobile-hide">
@@ -76,7 +75,7 @@
                     <hr class="mobile-hide">
                 </div>
             </section>
-            <section class="slide">
+            <section id="shopping" class="slide">
                 <div>
                     <h1>Easy Shopping</h1>
                     <p class="mobile-hide">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit vitae dui id mi. 

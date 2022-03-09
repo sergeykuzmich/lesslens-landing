@@ -94,7 +94,7 @@ function init() {
     pmremGenerator.compileEquirectangularShader();
 
     //Global Light
-    globaLight = new THREE.AmbientLight( BG, 0.8); // soft white light
+    globaLight = new THREE.AmbientLight( BG, 0.6); // soft white light
     scene.add( globaLight );
 
 
@@ -111,6 +111,8 @@ function init() {
         environment = gltf.scene;
         environment.castShadows
         scene.add( environment );
+
+        console.log( gltf.animations.length )
 
         gltf.scene.traverse( function ( object ) {
 
@@ -132,7 +134,6 @@ function init() {
         let vector = camera.position.clone();
         vector.applyMatrix4( camera.matrix );
 
-
         mixer = new THREE.AnimationMixer( gltf.scene );
         
         gltf.animations.forEach( ( clip ) => {
@@ -147,7 +148,8 @@ function init() {
     //Events
 
     window.addEventListener( 'resize', onWindowResize );
-    document.addEventListener( 'mousemove', onMouseMove );
+    // document.addEventListener( 'mousemove', onMouseMove );
+    window.addEventListener("wheel", scroll );
 }
 
 
@@ -159,28 +161,11 @@ function onWindowResize() {
     render();
 }
 
-function scroll() {
-    let lastKnownScrollPosition = 0;
-    let currentSnap = 0
-    let ticking = false;
 
-    slider.addEventListener('scroll', function(e) {
-    
-    lastKnownScrollPosition = slider.scrollTop;
-
-    if (!ticking && scrollToFrame(slider.scrollTop) > 0 ) {
-            window.requestAnimationFrame(function() {
-            mixer.setTime( scrollToFrame(slider.scrollTop) );
-            ticking = false;
-        });
-        render();
-        ticking = true;
-    } 
-    })
-
-}
 
 function render() {
+    mixer.setTime( -slide.getBoundingClientRect().top / window.innerHeight * 2.6);
+    window.requestAnimationFrame(render);
     renderer.render( scene, camera );
 }
 
@@ -194,7 +179,7 @@ function onMouseMove(event) {
 
             camera.position.z = -mouse.y / 80;
             camera.position.x = mouse.x / 80;
-            render();
+            // render();
         }); 
     }   
 }
@@ -203,17 +188,4 @@ function radians( degrees ){
     return degrees * Math.PI/180 
 } 
 
-function scrollToFrame( position ){ 
-    return 7.5 * position / ( slider.clientHeight * (snapPoints().length - 1) )
-} 
-
-
-function snapPoints() {
-    const points = [];
-    const slides = slider.scrollHeight / slide.clientHeight
-    for (let i = 0; i < slides; i++){
-        points.push( slide.clientHeight * i );
-    }
-    return points
-}
 

@@ -2,24 +2,16 @@ import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threej
 import { GLTFLoader } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/GLTFLoader.js';
 import { RGBELoader } from ' https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/RGBELoader.js';
 
-let container, scene, gltfLoader, environment, renderer, manager;
-let camera, mixer, clock, hdri, pmremGenerator, grid;
-let globaLight;
+let container, scene, gltfLoader, environment, renderer, manager, progress;
+let camera, mixer, globaLight, hdri, pmremGenerator;
 
-let progress
-var mouse = {x: 0, y: 0};
+
 const pbar = document.getElementById('progress');
 const loadScreen = document.getElementById('load-screen');
 const loadCounter = document.getElementById("counter");
-const slider = document.getElementById("slider");
 const slide = document.querySelector(".slide");
-const snaps = [];
-
-clock = new THREE.Clock();
 
 init();
-scroll();
-
 
 function init() {
     container = document.getElementById('scene'); 
@@ -42,10 +34,7 @@ function init() {
         container.appendChild( renderer.domElement );
         slider.scrollTo( 0, 0 );
         mixer.setTime( 0 );
-        render();
-
-        snaps = snapPoints();
-        
+        render()
     
     };
     manager.onError = function ( url ) {
@@ -55,6 +44,7 @@ function init() {
     };
     
     // Renderer
+
     renderer = new THREE.WebGLRenderer( { antialias:true } );
     renderer.setPixelRatio( window.devicePixelRatio, false )
     renderer.setSize( container.clientWidth, container.clientHeight );
@@ -65,6 +55,7 @@ function init() {
     renderer.outputEncoding = THREE.sRGBEncoding
 
     // Scene
+
     scene = new THREE.Scene();
     scene.background = new THREE.Color( BG );
 
@@ -81,8 +72,6 @@ function init() {
         scene.background = hdri;
         scene.environment = hdri;
 
-        scene.rotation.y = radians(0);
-
         texture.dispose();
         pmremGenerator.dispose();
     })
@@ -90,11 +79,13 @@ function init() {
     pmremGenerator.compileEquirectangularShader();
 
     //Global Light
+
     globaLight = new THREE.AmbientLight( BG, 0.6); // soft white light
     scene.add( globaLight );
 
 
     // Sky
+
     const skyGeometry = new THREE.SphereGeometry(5, 24, 24);
     const skyMaterial = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('./scene/sky.png'), side: THREE.BackSide });
     const sky = new THREE.Mesh(skyGeometry, skyMaterial);
@@ -102,13 +93,14 @@ function init() {
     
    
     // GLTF Scene loader
+
     gltfLoader = new GLTFLoader( manager );
     gltfLoader.load( './scene/default.gltf', function ( gltf ) { 
         environment = gltf.scene;
         environment.castShadows
         scene.add( environment );
 
-        console.log( gltf.animations.length )
+        // console.log( gltf.animations.length )
 
         gltf.scene.traverse( function ( object ) {
 
@@ -144,7 +136,7 @@ function init() {
     //Events
 
     window.addEventListener( 'resize', onWindowResize );
-    document.addEventListener( 'mousemove', onMouseMove );
+
 }
 
 
@@ -157,26 +149,11 @@ function onWindowResize() {
 }
 
 
-
 function render() {
     mixer.setTime( -slide.getBoundingClientRect().top / window.innerHeight * 2.6);
     window.requestAnimationFrame(render);
     renderer.render( scene, camera );
 }
 
-function onMouseMove(event) {
-    if (document.body.clientWidth > 1024 ) {
-            event.preventDefault();
-            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
-
-            camera.position.z = -mouse.y / 80;
-            camera.position.x = mouse.x / 80;
-    }   
-}
-
-function radians( degrees ){ 
-    return degrees * Math.PI/180 
-} 
 
 

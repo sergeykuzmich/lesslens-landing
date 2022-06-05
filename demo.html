@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="./demo/demo.css">
+    <!-- <script type="module" src="./demo.js"></script> -->
+
+    <title>Demo</title>
+
+</head>
+<body>
+
+
+<a id="ar-link" rel="ar" href="./demo/test.reality#allowsContentScaling=1
+&custom=https://www.lesslens.com/demo/banner.html
+&customHeight=small
+&canonicalWebPageURL=https://www.lesslens.com/demo.html"  >
+    <img id="img" src="./demo/model.png" alt="glasses">
+</a>
+    
+
+<!-- <div id="vr"></div> -->
+
+<script>
+    const linkElement = document.getElementById("ar-link");
+    linkElement.addEventListener("message", function (event) {   
+    if (event.data == "_apple_ar_quicklook_button_tapped") {
+        window.location.href = 'https://apps.apple.com/app/apple-store/id1535675035?pt=122143363&ct=landing&mt=8';
+    }
+}, false);
+
+</script>
+
+
+</body>
+</html>

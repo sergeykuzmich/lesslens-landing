@@ -1,0 +1,85 @@
+:root{
+    --white: #FBFBFA;
+    --black: #2C2A32;
+    --grey: #4E5B6A;
+    --orange: #FF9150;
+    --blue: #8286DB;
+    --green: #56BA8D;
+    --padding: 15%;
+    --padding2: 16px;
+    --header: 80px;
+    --header-mobile: 62px;
+    --footer: 85px;
+    --footer-mobile: 60px;
+}
+
+@font-face {
+    font-family: "San Francisco";
+    src: url("./font/SF-Pro-Display-Regular.otf") format("opentype");
+    font-weight: normal;
+  }
+
+@font-face {
+    font-family: "San Francisco";
+    src: url("./font/SF-Pro-Display-Semibold.otf") format("opentype");
+    font-weight: 600;
+  }
+
+@font-face {
+    font-family: "San Francisco";
+    src: url("./font/SF-Pro-Display-Medium.otf") format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "San Francisco";
+    src: url("./font/SF-Pro-Display-Heavy.otf") format("opentype");
+    font-weight: 800;
+}
+
+h1, h2 {
+    font-family: "San Francisco", sans-serif;
+    font-weight: 800;
+    font-size: 52px;
+    line-height: 100%;
+    letter-spacing: 0.008em;
+    margin: 16px 0;
+}
+p {
+    font-family: "San Francisco", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 0.04em;
+    margin: 16px 0;
+}
+
+.img {
+    
+
+}
+
+
+#vr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "San Francisco", sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: 0.008em;
+    margin: 16px 0;
+
+    width: 500px;
+    height: 500px;
+    color: var(--white);
+    background-color: var(--white);
+}
+
+.view {
+    width: 100%;
+    height: 30vh;
+}

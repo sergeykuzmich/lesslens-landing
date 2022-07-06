@@ -3,36 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="./demo/demo.css">
-    <!-- <script type="module" src="./demo.js"></script> -->
+    <link rel="stylesheet" href="demo/style.css">
+    <link rel="stylesheet" href="demo/css/flickity.css" media="screen">
+    <script type="module" src="demo/js/tryon.js"></script>
+    <script type="module" src="demo/js/scene.js"></script>
 
     <title>Demo</title>
 
 </head>
 <body>
-
-<div class="card">
-    <a id="ar-link" rel="ar" href="./demo/111.reality#allowsContentScaling=1
-&custom=https://www.lesslens.com/demo/banner.html
-&customHeight=small
-&canonicalWebPageURL=https://www.lesslens.com/demo.html"  >
-    <img id="img" src="./demo/111.jpeg" alt="glasses">
-</a>
-
-</div>
-
-
-<script>
-    const linkElement = document.getElementById("ar-link");
-    linkElement.addEventListener("message", function (event) {   
-    if (event.data == "_apple_ar_quicklook_button_tapped") {
-        window.location.href = 'https://apps.apple.com/app/apple-store/id1535675035?pt=122143363&ct=landing&mt=8';
-    }
-}, false);
-
-</script>
+    <header>
+        <div class="menu">
+            <img src="img/logo.svg" alt="logo" class="logo-icon">
+            <div class="logo-title">LESS LENS</div>
+            <a href="https://www.instagram.com/less.lens/" target="_blank"><img src="./img/instagram.svg"></a>
+            <a href="https://twitter.com/lens_less" target="_blank"><img src="./img/twitter.svg"></a>
+            <!-- <a href="" data-feather="facebook" target="_blank"><img src="./img/facebook.svg"></a> -->
+            <a href="mailto:info@lesslens.com"><img src="./img/mail.svg"></a>
+        </div>
+        <div class="color-strip"></div>
 
 
+
+    </header>
+
+    <section>
+
+        <div class="slider">
+            <div class="slides">
+                <div id='slide-1' class="slide">
+                    <video width='100%' height='100%' autoplay muted loop>
+                    <source src="demo/img/111.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div id="slide-2" class="slide">
+                    <div id="scene"></div>
+                </div>
+            </div>
+
+
+
+            <div class="controls">
+                <a href="#slide-1" class="control">
+                    <img src="demo/img/video.svg" alt="Video">
+                    Video
+                </a>
+                <a href="#slide-2" class="control">
+                    <img src="demo/img/3d.svg" alt="3D">
+                    3D view
+                </a>
+            </div>
+
+
+        </div>
+
+
+        <div class="description">
+            <h1>PLD 2129/S</h1>
+            <small>These unisex sunglasses in polycarbonate feature round frames, 
+                and temples that get narrower around the ears, with a colourful 
+                rubberised insert on the underside of the end tips for better grip.
+                 The other contrast details are quite original too, with a printed 
+                 logo on the temple and an endpiece that wraps from the front to the hinges.
+            </small>
+            <div id="tryon"></div>
+            <hr>
+            <div class="feature">
+                <img src="demo/img/3d.svg" alt="">
+                <p>Shape</p>
+                <h6>Round / oval </h6>
+            </div>
+            <div class="feature">
+                <img src="demo/img/3d.svg" alt="">
+                <p>Frame material</p>
+                <h6>Polycarbonate</h6>
+            </div>
+            <div class="feature">
+                <img src="demo/img/3d.svg" alt="">
+                <p>Lens Class</p>
+                <h6>100</h6>
+            </div>
+            <div class="feature">
+                <img src="demo/img/3d.svg" alt="">
+                <p>Lens colour</p>
+                <h6>C3</h6>
+            </div>
+            <div class="feature">
+                <img src="demo/img/3d.svg" alt="">
+                <p>Tecnology</p>
+                <h6>Polarized</h6>
+            </div>
+        </div>
+
+    </section>
+    <footer></footer>
 </body>
 </html>

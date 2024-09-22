@@ -1,2 +1,1 @@
-# lesslens-landing
-landing page
+# LessLens
